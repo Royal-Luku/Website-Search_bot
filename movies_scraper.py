@@ -5,13 +5,13 @@ from bs4 import BeautifulSoup
 
 
 url_list = {}
-api_key = "Your Api Key"
+api_key = "dac861e077d89e423386b02dc53c59c53092605a"
 
 
 def search_movies(query):
     movies_list = []
     movies_details = {}
-    website = BeautifulSoup(requests.get(f"https://185.53.88.104/?s={query.replace(' ', '+')}").text, "html.parser")
+    website = BeautifulSoup(requests.get(f"https://skymovieshd.email/?s={query.replace(' ', '+')}").text, "html.parser")
     movies = website.find_all("a", {'class': 'ml-mask jt'})
     for movie in movies:
         if movie:
@@ -34,7 +34,7 @@ def get_movie(query):
         links = movie_page_link.find_all("a", {'rel': 'noopener', 'data-wpel-link': 'internal'})
         final_links = {}
         for i in links:
-            url = f"https://shortnerfly.com/api?api={api_key}&url={i['href']}"
+            url = f"https://gplinks.in/api?api={api_key}&url={i['href']}"
             response = requests.get(url)
             link = response.json()
             final_links[f"{i.text}"] = link['shortenedUrl']
